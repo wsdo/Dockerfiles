@@ -1,0 +1,40 @@
+FROM ubuntu:16.04
+
+LABEL maintainer="starkwang wsd312@163.com"
+LABEL name="ubuntu-base"
+LABEL version="latest"
+
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get dist-upgrade -y
+RUN apt-get install  -y           \
+    curl                          \
+    htop                          \
+    git                           \
+    zip                           \
+    nano                          \
+    ncdu                          \
+    build-essential               \
+    chrpath                       \
+    libssl-dev                    \
+    libxft-dev                    \
+    pkg-config                    \
+    glib2.0-dev                   \
+    libexpat1-dev                 \
+    gobject-introspection         \
+    python-gi-dev                 \
+    apt-transport-https           \
+    libgirepository1.0-dev        \
+    libtiff5-dev                  \
+    libjpeg-turbo8-dev            \
+    libgsf-1-dev                  \
+    locales                       \
+    fail2ban
+
+RUN locale-gen en_US.UTF-8
+
+WORKDIR /home
+
+ENTRYPOINT ["/bin/bash"]
