@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM prodenv/ubuntu-base
 LABEL maintainer="starkwang wsd312@163.com"
 LABEL name="node-env"
 LABEL version="latest"
